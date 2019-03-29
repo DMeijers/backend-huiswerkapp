@@ -14,9 +14,9 @@ class AddNewContentUsers extends Migration
     public function up()
     {
         Schema::table('user', function (Blueprint $table) {
-            $table->string('geboortedatum');
+            $table->date('geboortedatum');
             $table->string('addres');
-            $table->string('rol');
+            $table->integer('rol');
         });
     }
 
