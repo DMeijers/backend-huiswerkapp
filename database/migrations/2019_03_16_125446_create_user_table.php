@@ -18,7 +18,7 @@ class CreateUserTable extends Migration
             $table->string('voornaam');
             $table->string('achternaam');
             $table->string('email');
-            $table->string('password');
+            $table->string('wachtwoord');
             $table->string('klas');
         });
     }
