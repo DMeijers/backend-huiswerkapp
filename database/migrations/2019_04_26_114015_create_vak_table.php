@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddNewContentUsers extends Migration
+class CreateVakTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class AddNewContentUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->date('geboortedatum');
-            $table->string('addres');
+        Schema::create('vak', function (Blueprint $table) {
+            $table->increments('id');
+            $table->unsignedInteger('user_id');
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,6 +29,6 @@ class AddNewContentUsers extends Migration
      */
     public function down()
     {
-
+        Schema::dropIfExists('vak');
     }
 }
